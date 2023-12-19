@@ -2,11 +2,12 @@ import { File } from '@asyncapi/generator-react-sdk'
 
 
 export default function ({asyncapi}) {
+  const description = asyncapi.info().description()
   return <File name={"package.json"}>{
     `{
   "name": "${asyncapi.info().title().toLowerCase().replace(/ /g, "-")}",
   "version": "0.1.0",
-  "description": "${asyncapi.info().description().split('\n')[0]}...",
+  "description": "${description ? asyncapi.info().description().split('\n')[0]: ""}",
   "type": "module",
   "engines": {
     "node": ">=14.15.1"

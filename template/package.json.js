@@ -1,5 +1,5 @@
 import { File } from "@asyncapi/generator-react-sdk"
-
+import fetch from 'node-fetch'
 export default async function ({ asyncapi }) {
   const description = asyncapi.info().description()
   const response = await fetch("https://registry.npmjs.org/@asyncapi/glee")
